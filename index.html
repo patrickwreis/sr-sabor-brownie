@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#241a16">
+  <meta name="description" content="Brownies artesanais Sr Sabor.Brownie. Escolha seu sabor e peça pelo WhatsApp.">
+  <title>Sr Sabor.Brownie | Um pedaço de felicidade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #241a16;
+      --cocoa: #56362a;
+      --caramel: #bd8053;
+      --cream: #f7f2e9;
+      --paper: #fffdf8;
+      --sage: #68735a;
+      --line: #e7ded2;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    a { color: inherit; }
+    button { font: inherit; }
+
+    .topbar {
+      align-items: center;
+      background: var(--ink);
+      color: var(--cream);
+      display: flex;
+      justify-content: space-between;
+      min-height: 70px;
+      padding: 0 clamp(20px, 6vw, 88px);
+    }
+    .brand { font-family: var(--serif); font-size: 21px; font-weight: 600; text-decoration: none; }
+    .brand span { color: #d7a67b; }
+    .topbar nav { align-items: center; display: flex; gap: 30px; }
+    .topbar nav a { color: #f4e9dc; font-size: 13px; text-decoration: none; }
+    .topbar nav a:hover { color: #d7a67b; }
+    .nav-order { border: 1px solid #91715d; border-radius: 2px; padding: 11px 17px; }
+
+    .hero {
+      align-items: end;
+      background-color: #493126;
+      background-image: url("https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=2200&q=88");
+      background-position: center 52%;
+      background-size: cover;
+      color: white;
+      display: flex;
+      min-height: min(760px, 86vh);
+      padding: 100px clamp(24px, 10vw, 150px) 86px;
+      position: relative;
+    }
+    .hero::before { background: rgba(22, 15, 12, .42); content: ""; inset: 0; position: absolute; }
+    .hero-copy { max-width: 680px; position: relative; }
+    .eyebrow { color: #f0c99f; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    .hero h1 { font-family: var(--serif); font-size: clamp(48px, 7vw, 86px); font-weight: 500; letter-spacing: 0; line-height: 1.02; margin: 20px 0; max-width: 660px; }
+    .hero p { color: #f3e9df; font-size: 17px; line-height: 1.7; margin-bottom: 30px; max-width: 460px; }
+    .button {
+      align-items: center;
+      background: #d29a6b;
+      border: 1px solid #d29a6b;
+      border-radius: 2px;
+      color: #211711;
+      display: inline-flex;
+      font-size: 13px;
+      font-weight: 700;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .button:hover { background: #e0b188; transform: translateY(-2px); }
+    .button-light { background: transparent; border-color: rgba(255,255,255,.65); color: white; margin-left: 9px; }
+    .button-light:hover { background: rgba(255,255,255,.12); }
+
+    .intro {
+      align-items: center;
+      background: var(--cream);
+      display: grid;
+      gap: 40px;
+      grid-template-columns: 1fr auto;
+      padding: 48px clamp(24px, 10vw, 150px);
+    }
+    .intro h2 { font: 500 clamp(26px, 3vw, 38px)/1.2 var(--serif); margin: 0 0 9px; }
+    .intro p { color: #6d5f55; font-size: 14px; line-height: 1.7; margin: 0; max-width: 640px; }
+    .price-note { border-left: 1px solid #cbbba9; color: var(--cocoa); font-size: 12px; line-height: 1.6; padding-left: 24px; white-space: nowrap; }
+    .price-note strong { display: block; font: 600 25px var(--serif); }
+
+    main { padding: 84px clamp(20px, 7vw, 100px) 90px; }
+    .section-heading { align-items: end; display: flex; justify-content: space-between; margin: 0 auto 40px; max-width: 1260px; }
+    .section-heading h2 { font: 500 clamp(34px, 4vw, 48px)/1.1 var(--serif); margin: 9px 0 0; }
+    .section-heading p { color: #75675d; font-size: 13px; margin: 0 0 4px; }
+    .eyebrow-dark { color: var(--sage); }
+    .menu-group { margin: 0 auto 58px; max-width: 1260px; }
+    .group-title { align-items: center; border-bottom: 1px solid var(--line); display: flex; gap: 16px; margin-bottom: 22px; padding-bottom: 13px; }
+    .group-title h3 { font: 500 24px var(--serif); margin: 0; }
+    .group-title span { color: #84766d; font-size: 11px; }
+    .product-grid { display: grid; gap: 24px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .product { background: white; border: 1px solid var(--line); min-width: 0; }
+    .product-photo { aspect-ratio: 1.48 / 1; background-color: #dbc4ae; background-position: center; background-size: cover; }
+    .photo-1 { background-image: url("https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=82"); }
+    .photo-2 { background-image: url("https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=900&q=82"); }
+    .photo-3 { background-image: url("https://images.unsplash.com/photo-1607920591413-4ec007e70023?auto=format&fit=crop&w=900&q=82"); }
+    .product-body { padding: 20px 21px 19px; }
+    .product-top { align-items: start; display: flex; gap: 10px; justify-content: space-between; }
+    .product h4 { font: 500 21px/1.15 var(--serif); margin: 0; }
+    .product-price { color: var(--cocoa); font-size: 15px; font-weight: 700; white-space: nowrap; }
+    .product p { color: #75675d; font-size: 12px; line-height: 1.6; margin: 10px 0 15px; min-height: 38px; }
+    .product-bottom { align-items: center; border-top: 1px solid #eee8e0; display: flex; justify-content: space-between; padding-top: 14px; }
+    .weight { color: #78695f; font-size: 11px; }
+    .order-link { color: var(--sage); font-size: 12px; font-weight: 700; text-decoration: none; }
+    .order-link:hover { color: var(--cocoa); }
+
+    .closing {
+      align-items: center;
+      background: #314039;
+      color: #fffaf1;
+      display: grid;
+      gap: 42px;
+      grid-template-columns: 1fr 1fr;
+      padding: 70px clamp(24px, 10vw, 150px);
+    }
+    .closing h2 { font: 500 clamp(32px, 4vw, 48px)/1.12 var(--serif); margin-bottom: 14px; max-width: 500px; }
+    .closing p { color: #d8ded4; font-size: 13px; line-height: 1.8; margin-bottom: 0; max-width: 510px; }
+    .care { border-left: 1px solid rgba(255,255,255,.22); padding-left: 36px; }
+    .care h3 { font: 500 22px var(--serif); margin-bottom: 14px; }
+    .care p + p { margin-top: 9px; }
+    .care strong { color: #f0c99f; }
+    footer { align-items: center; background: var(--ink); color: #d8cabe; display: flex; flex-wrap: wrap; gap: 14px 30px; justify-content: space-between; padding: 22px clamp(24px, 7vw, 100px); }
+    footer a { color: #f0c99f; font-size: 13px; text-decoration: none; }
+    footer small { font-size: 11px; }
+    .mobile-order { display: none; }
+
+    @media (max-width: 760px) {
+      .topbar { min-height: 62px; padding: 0 20px; }
+      .brand { font-size: 18px; }
+      .topbar nav { gap: 0; }
+      .topbar nav a:not(.nav-order) { display: none; }
+      .nav-order { padding: 9px 12px; }
+      .hero { background-position: 57% center; min-height: 78svh; padding: 90px 24px 64px; }
+      .hero h1 { font-size: clamp(47px, 13vw, 68px); }
+      .hero p { font-size: 15px; }
+      .hero .button { min-height: 47px; padding: 0 17px; }
+      .button-light { margin-left: 5px; }
+      .intro { gap: 22px; grid-template-columns: 1fr; padding: 32px 24px; }
+      .price-note { border-left: 0; border-top: 1px solid #cbbba9; padding: 16px 0 0; white-space: normal; }
+      .price-note strong { display: inline; margin-right: 7px; }
+      main { padding: 58px 20px 66px; }
+      .section-heading { align-items: start; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+      .product-grid { gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .product-body { padding: 15px 13px 14px; }
+      .product h4 { font-size: 18px; }
+      .product-price { font-size: 13px; }
+      .product p { font-size: 11px; min-height: 52px; }
+      .product-photo { aspect-ratio: 1.15 / 1; }
+      .group-title { align-items: baseline; gap: 10px; }
+      .group-title h3 { font-size: 22px; }
+      .group-title span { font-size: 10px; }
+      .closing { gap: 34px; grid-template-columns: 1fr; padding: 54px 24px; }
+      .care { border-left: 0; border-top: 1px solid rgba(255,255,255,.22); padding: 25px 0 0; }
+      footer { padding-bottom: 82px; }
+      .mobile-order { background: var(--ink); bottom: 0; display: block; left: 0; padding: 10px 16px; position: fixed; right: 0; z-index: 5; }
+      .mobile-order a { background: #d29a6b; border-radius: 2px; color: var(--ink); display: block; font-size: 13px; font-weight: 700; padding: 13px; text-align: center; text-decoration: none; }
+    }
+    @media (max-width: 390px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .product-photo { aspect-ratio: 1.5 / 1; }
+      .product p { min-height: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio">Sr Sabor<span>.</span>Brownie</a>
+    <nav aria-label="Navegação principal">
+      <a href="#sabores">Sabores</a>
+      <a href="#feito-com-carinho">Nosso cuidado</a>
+      <a class="nav-order" href="https://wa.me/5511994472244?text=Oi%21%20Quero%20fazer%20um%20pedido%20de%20brownie.">Peça pelo WhatsApp</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-copy">
+      <span class="eyebrow">Sr Sabor.Brownie · feito com carinho</span>
+      <h1>Um pedaço de felicidade, do seu jeito.</h1>
+      <p>Brownies macios por dentro, cheios de sabor e feitos para transformar qualquer momento em ocasião especial.</p>
+      <a class="button" href="#sabores">Escolher meu sabor <span aria-hidden="true">&nbsp;↓</span></a>
+      <a class="button button-light" href="https://wa.me/5511994472244?text=Oi%21%20Quero%20conhecer%20os%20brownies%20Sr%20Sabor.">Falar com a gente</a>
+    </div>
+  </section>
+
+  <section class="intro" aria-label="Informações do cardápio">
+    <div>
+      <h2>Seu próximo favorito está aqui.</h2>
+      <p>Do chocolate meio amargo aos sabores blond com chocolate branco: escolha o seu e peça direto pelo WhatsApp. Consulte a taxa de entrega com a gente.</p>
+    </div>
+    <div class="price-note"><strong>A partir de R$ 60</strong> brownies de 500 g a 600 g</div>
+  </section>
+
+  <main id="sabores">
+    <div class="section-heading">
+      <div><span class="eyebrow eyebrow-dark">Feitos para dar água na boca</span><h2>Escolha seu brownie</h2></div>
+      <p>Todos os sabores do nosso menu, em um só lugar.</p>
+    </div>
+
+    <section class="menu-group" aria-labelledby="classicos-heading">
+      <div class="group-title"><h3 id="classicos-heading">Chocolate meio amargo</h3><span>Clássicos e especiais</span></div>
+      <div class="product-grid">
+        <article class="product"><div class="product-photo photo-1" role="img" aria-label="Brownie de chocolate com nozes"></div><div class="product-body"><div class="product-top"><h4>Tradicional</h4><span class="product-price">R$ 60</span></div><p>Chocolate meio amargo, molhadinho por dentro.</p><div class="product-bottom"><span class="weight">500 g</span><a class="order-link" href="#" data-flavor="Tradicional">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-2" role="img" aria-label="Brownie especial de café"></div><div class="product-body"><div class="product-top"><h4>Especial Café</h4><span class="product-price">R$ 60</span></div><p>Sabor intenso de café junto com chocolate meio amargo.</p><div class="product-bottom"><span class="weight">500 g</span><a class="order-link" href="#" data-flavor="Especial Café">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-3" role="img" aria-label="Brownie coberto com nozes"></div><div class="product-body"><div class="product-top"><h4>Nozes</h4><span class="product-price">R$ 60</span></div><p>Clássico brownie com nozes picadas e crocantes.</p><div class="product-bottom"><span class="weight">520 g</span><a class="order-link" href="#" data-flavor="Nozes">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-2" role="img" aria-label="Brownie com biscoito Oreo"></div><div class="product-body"><div class="product-top"><h4>Oreo</h4><span class="product-price">R$ 60</span></div><p>Chocolate meio amargo com pedaços de biscoito Oreo.</p><div class="product-bottom"><span class="weight">500 g</span><a class="order-link" href="#" data-flavor="Oreo">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-1" role="img" aria-label="Brownie recheado com creme de avelã"></div><div class="product-body"><div class="product-top"><h4>Nutella</h4><span class="product-price">R$ 60</span></div><p>Brownie recheado com creme de avelã.</p><div class="product-bottom"><span class="weight">550 g</span><a class="order-link" href="#" data-flavor="Nutella">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-3" role="img" aria-label="Brownie com pedaços de chocolate"></div><div class="product-body"><div class="product-top"><h4>Double Choco</h4><span class="product-price">R$ 60</span></div><p>Delicioso brownie com chocolate em gotas.</p><div class="product-bottom"><span class="weight">500 g</span><a class="order-link" href="#" data-flavor="Double Choco">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-3" role="img" aria-label="Brownie com lâminas de amêndoas"></div><div class="product-body"><div class="product-top"><h4>Amêndoas</h4><span class="product-price">R$ 60</span></div><p>Lâminas de amêndoas torradas e crocantes.</p><div class="product-bottom"><span class="weight">500 g</span><a class="order-link" href="#" data-flavor="Amêndoas">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-1" role="img" aria-label="Brownie com farofa de paçoca"></div><div class="product-body"><div class="product-top"><h4>Paçoca</h4><span class="product-price">R$ 60</span></div><p>Chocolate meio amargo com farofa de paçoca.</p><div class="product-bottom"><span class="weight">520 g</span><a class="order-link" href="#" data-flavor="Paçoca">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-2" role="img" aria-label="Brownie com pedaços de doce de leite"></div><div class="product-body"><div class="product-top"><h4>Doce de Leite</h4><span class="product-price">R$ 60</span></div><p>Uma combinação surpreendente com pedaços de doce de leite.</p><div class="product-bottom"><span class="weight">550 g</span><a class="order-link" href="#" data-flavor="Doce de Leite">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-3" role="img" aria-label="Brownie de café com doce de leite"></div><div class="product-body"><div class="product-top"><h4>Café com Doce de Leite</h4><span class="product-price">R$ 60</span></div><p>Brownie com sabor suave de café e pedaços de doce de leite.</p><div class="product-bottom"><span class="weight">550 g</span><a class="order-link" href="#" data-flavor="Café com Doce de Leite">Pedir este ↗</a></div></div></article>
+      </div>
+    </section>
+
+    <section class="menu-group" aria-labelledby="blond-heading">
+      <div class="group-title"><h3 id="blond-heading">Menu Blond</h3><span>Chocolate branco e combinações especiais</span></div>
+      <div class="product-grid">
+        <article class="product"><div class="product-photo photo-3" role="img" aria-label="Brownie blond com nozes"></div><div class="product-body"><div class="product-top"><h4>Blond Nozes</h4><span class="product-price">R$ 60</span></div><p>Brownie blond com nozes picadas e crocantes.</p><div class="product-bottom"><span class="weight">520 g</span><a class="order-link" href="#" data-flavor="Blond Nozes">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-2" role="img" aria-label="Brownie blond com amêndoas torradas"></div><div class="product-body"><div class="product-top"><h4>Blond Amêndoas</h4><span class="product-price">R$ 60</span></div><p>Chocolate branco nobre com lâminas de amêndoas torradas.</p><div class="product-bottom"><span class="weight">500 g</span><a class="order-link" href="#" data-flavor="Blond Amêndoas">Pedir este ↗</a></div></div></article>
+        <article class="product"><div class="product-photo photo-1" role="img" aria-label="Brownie blond recheado com ganache de pistache"></div><div class="product-body"><div class="product-top"><h4>Pistache</h4><span class="product-price">R$ 68</span></div><p>Chocolate branco recheado com ganache de pistache.</p><div class="product-bottom"><span class="weight">600 g</span><a class="order-link" href="#" data-flavor="Pistache">Pedir este ↗</a></div></div></article>
+      </div>
+    </section>
+  </main>
+
+  <section class="closing" id="feito-com-carinho">
+    <div>
+      <span class="eyebrow">Um carinho em cada pedaço</span>
+      <h2>Tem um sabor chamando por você.</h2>
+      <p>Faça seu pedido pelo WhatsApp. A taxa de entrega é consultada de acordo com a sua região.</p>
+      <p style="margin-top: 22px"><a class="button" href="https://wa.me/5511994472244?text=Oi%21%20Quero%20fazer%20um%20pedido%20de%20brownie.">Quero pedir agora ↗</a></p>
+    </div>
+    <div class="care">
+      <h3>Para aproveitar cada pedacinho</h3>
+      <p><strong>Quer quentinho?</strong> Aquecer é opcional: coloque no forno preaquecido a 180 °C por 5 minutos.</p>
+      <p><strong>Vai guardar?</strong> Conserve na geladeira por até 8 dias.</p>
+      <p><strong>Entrega:</strong> consulte a taxa pelo WhatsApp.</p>
+    </div>
+  </section>
+
+  <footer>
+    <a class="brand" href="#inicio">Sr Sabor<span>.</span>Brownie</a>
+    <small>Brownies preparados com carinho e capricho.</small>
+    <a href="https://wa.me/5511994472244?text=Oi%21%20Vim%20pelo%20site%20Sr%20Sabor.Brownie.">(11) 99447-2244 · WhatsApp</a>
+  </footer>
+  <div class="mobile-order"><a href="https://wa.me/5511994472244?text=Oi%21%20Quero%20fazer%20um%20pedido%20de%20brownie.">Pedir pelo WhatsApp · (11) 99447-2244</a></div>
+
+  <script>
+    const phone = "5511994472244";
+    document.querySelectorAll("[data-flavor]").forEach((link) => {
+      const flavor = link.dataset.flavor;
+      link.href = `https://wa.me/${phone}?text=${encodeURIComponent(`Oi! Quero pedir o brownie ${flavor}.` )}`;
+    });
+  </script>
+</body>
+</html>
